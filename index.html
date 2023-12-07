@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/Billy-paw-400.png">
+    <link rel="stylesheet" href="./bubbleStyle.css">
+    <link rel="stylesheet" href="./fakeStyle.css">
+    <title>Silly Billy Bubbles Tour</title>
+</head>
+<body>
+
+<!-- NOTE: the content of the data-bubble property will be the descriptive content of each stop in the Bubble tour  -->
+    <div class="bubble-wrapper">
+
+        <!-- This button will start and end the tour, currently position: absolute in top right corner, but you can put it where you want to -->
+            <button class="open-billy-bubbles-btn start" id="billy-btn" title="open/close the Tour">
+                <img src="./assets/Billy-paw-400.png" alt="Silly Billy's paw to open tour">
+            </button>
+            
+        <!-- This is the first stop on the tour where Billy introduces himself and explains the tour, it is currently positioned a little bit down from the top of the page -->
+            <div id="bubble-intro" data-bubble="Hi! I'm Silly Billy! Let me take you on a little Bubble tour! (hit the >> button for the next tour stop!)"></div>
+        
+        <!-- This is the last stop on the tour where Billy gives a little outro : currently position it behind the above open-billy-bubble-tour so Billy can show people where they can open the tour again -->
+            <div id="bubble-outro" data-bubble="Ok! Feel free to hit the Billy-paw button anytime to start the tour again. Bye!"></div>
+        
+        <!-- This indicates which element Billy is currently talking about, it will appear at the top left of each element on the tour, except the last stop, it hides to not be confused with the open-tour button -->
+            <img id="bubble-indicator" src="./assets/Billy-paw-400.png" alt="Silly Billy's paw"></img>
+        
+        <!-- These are the elements for the Silly Billy Bubble Tour! -->
+            <div class="silly-billy-bubbles" id="silly-billy-bubbles">
+                <div class="billy-bubble" id="billy-bubble">
+                    <img src="./assets/Billy-whiskers-700.png" alt="Silly Billy's head">
+                </div>
+                <div class="bubble-shaper"></div>
+                <p class="bubble-content" id="bubble-content"></p>
+                <button class="close-bubble bubble-btn" id="close-bubble" title="close Billy Bubbles">X</button>
+                <button class="continue-bubble bubble-btn" id="continue-bubble" title="next Billy Bubble">>></button>
+            </div>
+    </div>
+
+<!-- Below this is a fake app to test Billy Bubbles with -->
+    <header data-bubble="This is the header">
+        <ul>
+            <li data-bubble="This is my logo. I made it all by myself." id="logo">
+                <a href="https://github.com/cavemutt" title="visit my repos!"><img src="./assets/jldev-final2-dkblue.png" alt="Jennifer Lee Dev logo"></a>
+            </li>
+            <li data-bubble="This is Fake Link 1" id="link-1">Link 1</li>
+            <li data-bubble="This is Fake Link 2" id="link-2">Link 2</li>
+        </ul>
+    </header>
+
+    <main data-bubble="This is the main section">
+        <h1 id="page-title" data-bubble="This is the page title and the title goes right here and here's more writing">The Silly Billy Bubbles Tour!</h1>
+        <div>
+            <p id="p-1" data-bubble="This is the first paragraph">Silly Billy will pop up in bubbles to give a tour of the app/website!</p>
+            <p id="p-2" data-bubble="This is the second paragraph">1. Enter the id's of the elements you want in your tour into the tourArray. Note : I'm assuming all of these elements will be available in the view of the body by the time it is showcased by Billy Bubbles.</p>
+            <p id="p-3" data-bubble="This is paragraph 3, though the content says it's number 2.">2. Add the custom property <code>data-bubble=""</code> to your html elements on the tour with value being the content you want to show in the bubble.</p>
+        </div>
+        <div>
+            <p id="p-4">3. The first element on your tour should be an invisible one postioned near the center of the landing spot, so Billy can introduce himself and the tour.</p>
+            <p id="p-5">4. The last element in your tour should be/be inside the Billy start-tour button, currently in the top right corner of the page with the id "outro". This will be where Billy says bye and points out the button for the user to start the tour again.</p>
+            <p id="p-6">5. Choose the colors and font you'd like for Silly Billy Bubbles and plug them into the custom CSS variables in the <code>:root{}</code> at the top of Billy's CSS file.</p>
+            <p id="p-7">6. You can also tweak your timings and postionings in the JavaScript file.</p>
+            <p id="p-8">7. Feel free to change the images and theme of the Bubbles. After all, there's only ONE Silly Billy Bubbles!</p>
+        </div>
+    </main>    
+
+    <footer id="footer" data-bubble="This is the footer">
+        <p id="footer-p" data-bubble="This is the footer paragraph">Hand-coded with love by Jennifer Lee Dev copyright &copy;2023</p>
+    </footer>
+
+<!-- DON'T FORGET THE GSAP LINK! -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
+    <script src="./bubbleScript.js"></script>
+
+</body>
+</html>
