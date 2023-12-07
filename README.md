@@ -9,14 +9,14 @@ _(This project is Silly Billy-approved)_
 HTML, CSS3, JavaScript, GSAP
 
 ## Why I built this :
-I have some personal projects that have features and little details that I want users to know about, but may get overlooked or left unknown if not pointed out. When a mentor at Promineo Tech said I should have something to point these things out, I was reminded of the old music video show that uses fun little bubbles that pop up during the video to point out details and bts info. Using that idea, combined with my rescue cat Silly Billy, I created this project to be something I could fairly easily pop into my other projects.  
+I have some personal projects that have features and little details that I'd like users to know about but may get overlooked or left unknown if not pointed out. When a mentor at Promineo Tech suggested I have something to point these things out, I was reminded of the old music video show that uses fun little bubbles that pop up during the video to point out details and bts info. Using that idea, combined with my rescue cat Silly Billy who looks at me with his funny face while I sit at the computer for hours, I created this project to be something I could fairly easily pop into my other projects.  
 
 ## How it works :
-This is a completely original project of my own design(except for it's inspiration) and coding, and including the photos of Billy and his paw. 
+This is a completely original project of my own coding and design(except for it's inspiration), including the photos of Silly Billy and his paw. 
 
-It takes an array of element tags you want on the tour and cycles through each one to obtain the position of the element, line up the Bubble and the Indicator helper near the element it is talking about, and GSAP is used to facilitate the animation of the Bubble items popping in and out.
+This app can be added to another website or app and takes an array of element tags you want on the tour and cycles through each one. It obtains the position of the element, lines up the Bubble and the Indicator helper near the element it is focusing on, and GSAP is used to facilitate the animation of the Bubble items popping in and out.
 
-NOTE: The website is a fake, just something to test the Silly Billy Bubbles app on.
+NOTE: The website behind the Bubbles is a fake, just something to test the Silly Billy Bubbles on.
 
 As each different project will have it's own color scheme, I made it easier to control the styles, such as the colors and font stylings, by using custom CSS variables in the top of the CSS file. Everything is named with the "bubble" theme, so you can import these "bubble" files into a project and it is highly unlikely they will interfere with other CSS and JS files. The text content of the Bubble at each tour stop is controlled by a custom HTML data property that you add to each tour stop element.
  ```data-bubble="_what you want the Bubble to say_"``` 
