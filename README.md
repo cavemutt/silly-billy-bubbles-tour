@@ -51,6 +51,7 @@ You can see him in action in my pinned projects!
 - Silly Billy Bubbles is screen size responsive, but might need some tweaking depending on the project.
 - GSAP is used for animating the Bubble items in and out, because why reinvent a wheel that's already been perfected? And their bounce easing is perfect for this project.
 
+![The highlighting feature example on the Silly Billy Bubble Tour](/assets/SBBT-highlighting-400.jpg)
 
 ### What I've learned, future development, and known issues : 
 This is an original project from concept to future development whereas some of my projects started from course assignments or what I felt would be a good course assignment. While animation timing and function can be time-consuming, the biggest things I learned while doing this project are how the different position-getting methods work and how they can sometimes return something different than you might expect. 
