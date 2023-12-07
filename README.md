@@ -58,11 +58,11 @@ This is an original project from concept to future development whereas some of m
 
 In future updates, I will be making this app more screen-reader accessible-friendly,  and I would like to keep working on perfecting the positioning functionality.
 
-### Known Issues and Fixes 
+### Known Issues and Fixes :
 
 The positioning of the Bubble Container and the Indicator are determined here by using offsetTop (and other offsets) of the elements on the tour. Though I was hoping to find a method that would get the exact position of any element in relation to the whole site page, it's a little more complicated than that, especially for nested elements. Not only is the positioning affected, any catches I have for keeping the Bubbles items from going outside the page view can also be triggered when they shouldn't be and vice versa.
 
-_the different methods_
+_the different methods and their issues regarding this project :_
 - ```Element.offsetTop``` retrieves the element's top relative to it's nearest visible parent container. So, as things get nested, they can get weird. The test site in this app uses elements nested only 3 deep from the body and it seems to work ok. 
 - Using ```element.getBoundingClientRect()``` gets info relative to the window viewport, also not the page.
 - I've also seen ```scrollY``` suggested as a solution, but it retrieve the Y position of an element relative to it's parent's scrolling height. So, if the element is not a child of the body you are scrolling, and if the parent doesn't even have an overflow to need a scrollbar, the scrollY will return as 0. Also not useful here.
