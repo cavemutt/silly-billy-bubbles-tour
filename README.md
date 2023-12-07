@@ -87,3 +87,5 @@ Web Dev Simplified (on Youtube and courses)
 
 
 _Please enjoy and thanks for checking it out!_
+
+![Silly Billy says goodbye until next time!](/assets/BubbleOutro.jpg)
