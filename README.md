@@ -46,10 +46,10 @@ You can see him in action in my pinned projects!
 - You control what it says, where the tour goes, in what order and how many stops are in the tour. 
 - I am using actual photos of my rescue cat Silly Billy and of his own paw, which rotate randomly with each popup.
 - The indicator helps point focus towards the element on each tour stop. 
-- Each element on the tour can also be highlighted(with an outline). This can be turned off by removing/commenting out 3 lines as indicated in the .js file.
 - This app uses ```element.offsetTop``` and other offsets to establish the positioning of the Bubble and Indicator. This may not work well for every stop on your tour, see the notes in the .js file or below in the future/known issues section for more info. 
 - Silly Billy Bubbles is screen size responsive, but might need some tweaking depending on the project.
 - GSAP is used for animating the Bubble items in and out, because why reinvent a wheel that's already been perfected? And their bounce easing is perfect for this project.
+- Each element on the tour can also be highlighted(with an outline). This can be turned off by removing/commenting out 3 lines as indicated in the .js file. (see photo below)
 
 ![The highlighting feature example on the Silly Billy Bubble Tour](/assets/SBBT-highlighting-400.jpg)
 
