@@ -8,6 +8,7 @@
 // THESE ARE the elements we need to access, I generally like to use classes for the CSS and id's for the JS to avoid any confusion
 const bubbleWrapper = document.querySelector('.bubble-wrapper')
 const billyBtn = document.querySelector('#billy-btn')
+const billyBtnTooltip = document.querySelector('#billy-btn-tooltip')
 const bubbleContainer = document.querySelector('#silly-billy-bubbles')
 const billyBubble = document.querySelector('#billy-bubble')
 const bubbleContent = document.querySelector('#bubble-content')
@@ -59,6 +60,13 @@ billyBtn.addEventListener('click', () => {
         bubbleContainer.classList.add('close')
         closeIt()
     }
+})
+
+billyBtn.addEventListener('mouseover', () => {
+    billyBtnTooltip.classList.add('show')
+})
+billyBtn.addEventListener('mouseout', () => {
+    billyBtnTooltip.classList.remove('show')
 })
 
 // the close button will end the tour

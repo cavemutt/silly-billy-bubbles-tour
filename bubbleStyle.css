@@ -83,6 +83,11 @@
     z-index: 150;
     cursor: pointer;
     pointer-events: all;
+    transition: 150ms ease;
+    -webkit-transition: 150ms ease;
+    -moz-transition: 150ms ease;
+    -ms-transition: 150ms ease;
+    -o-transition: 150ms ease;
 }
 .open-billy-bubbles-btn img {
     padding: 0.2rem;
@@ -93,6 +98,44 @@
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+}
+.open-billy-bubbles-btn:hover {
+    scale: 1.2;
+}
+
+#billy-btn-tooltip {
+    color: #fff;
+    position: absolute;
+    left: -150%;
+    top: 100%;
+    padding: 0.2rem;
+    background: var(--bubble-content-color);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: 150ms ease;
+    -webkit-transition: 150ms ease;
+    -moz-transition: 150ms ease;
+    -ms-transition: 150ms ease;
+    -o-transition: 150ms ease;
+}
+
+#billy-btn-tooltip::after {
+    content: '';
+    position: absolute;
+    top: -35%;
+    right: 20%;
+    border: 0.8em solid transparent;
+    border-bottom: 0.8em solid var(--bubble-content-color);
+}
+
+.show#billy-btn-tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 
 /* this is the container for the main bubble stuff (not the indicator) */
