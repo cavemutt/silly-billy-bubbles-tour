@@ -31,11 +31,13 @@ You can see him in action in my pinned projects!
 2. **Link your HTML to the bubbleStyles and bubbleScript files.**
 3. **Add the link to GSAP at the bottom of your body tag but above your regular script file link.**
 4. **Find the tourArray near the top of the bubbleScript file and remove all elements except for the intro and outro.** 
-5. **Test the intro, outro, and Billy button, which should already be working at this point. The button is positioned at the top right corner of your page, so adjust any styling you might need to.**
+5. **TEST the intro, outro, and Billy button, which should already be working at this point. The button is positioned at the top right corner of your page, so adjust any styling you might need to.**
 6. **Decide what elements you want in your tour (it will go in order of the array), add the tag/id name to the array (it is not currently set up to take multiple elements with the same class name).**
-7. **NOTE: If your elements are heavily nested, it might work better to use less-nested or nearby input/button elements just to get the Bubble where you want it. See notes in the .js file or below in the future/known issues section.**
-8. **Add the ```data-bubble=""``` attribute to each element on your tour with the content you want for that tour stop.**
-9. **Play through it (maybe add one or two at a time to make sure it's working as you go along). If the positioning of the Bubble items are wonky, see notes in the .js file or below in the future/known issues section.**
+7. **NOTE: IF BUBBLE OR INDICATOR POSITION IS NOT GOOD : If your elements are heavily nested, or if the Bubble or Indicator just aren't working right,try adding the custom attributes on the HTML element below as needed. If still not right, maybe point the Bubble and/or Indicator towards a less-nested or nearby input/button element just to get things working how you want it. (See notes in the .js file or below in the future/known issues section.)**
+TO CHANGE HOW THE BUBBLE POSITION IS CALCULATED : add custom attribute ```data-BoundingBubbleY``` and/or ```data-BoundingBubbleX```
+TO CHANGE HOW THE INDICATOR POSITION IS CALCULATED : add custom attribute ```data-BoundingDotY``` and/or ```data-BoundingDotX```
+8. **ADD THE CONTENT : Add the ```data-bubble=""``` attribute to each element on your tour with the content you want for that tour stop.**
+9. **TEST : Play through it (maybe add one or two at a time to make sure it's working as you go along). If the positioning of the Bubble items are wonky, see notes in the .js file or below in the future/known issues section.**
 10.**Make any adjustments to improve any positioning issues or animation timings to your liking.** 
 11.**Change the styles of the custom CSS variables in the root section of the .css file to suit your project!**
 
@@ -46,7 +48,7 @@ You can see him in action in my pinned projects!
 - You control what it says, where the tour goes, in what order and how many stops are in the tour. 
 - I am using actual photos of my rescue cat Silly Billy and of his own paw, which rotate randomly with each popup.
 - The indicator helps point focus towards the element on each tour stop. 
-- This app uses ```element.offsetTop``` and other offsets to establish the positioning of the Bubble and Indicator. This may not work well for every stop on your tour, see the notes in the .js file or below in the future/known issues section for more info. 
+- This app uses offsets to establish the positioning of the Bubble and Indicator by default. This may not work well for every stop on your tour, see the notes in the Instructions section above on adding custom attributes to an element to try a different way to calculate positioning. 
 - Silly Billy Bubbles is screen size responsive, but might need some tweaking depending on the project.
 - GSAP is used for animating the Bubble items in and out, because why reinvent a wheel that's already been perfected? And their bounce easing is perfect for this project.
 - Each element on the tour can also be highlighted(with an outline). This can be turned off by removing/commenting out 3 lines as indicated in the .js file. (see photo below)
@@ -69,14 +71,14 @@ _the different methods and their issues regarding this project :_
 - I've also tried looking for an element's and it's parents and parent's parent's (however deep it was from the body element) and getting their offsets to add them together, but that did not work as expected either.
 
 **Possible Fixes if the positioning for an element's Bubble is wonky :** 
+- Try adding these custom attributes to each element's HTML tag that you want to try getting the positions by element.getBoundingClientRect() instead of offsets, but know that it retrieves coordinates in relation to the viewport window, so make sure you have the viewport scrolled to where you want it first. ```data-boundingBubbleY```, ```data-boundingBubbleX```, ```data-boundingDotY```, ```data-boundingDotX```
 - Try pointing the Bubble/Indicator to a nearby element that is less nested. (You'd probably want to turn the highlighter off, though, since it highlights the element you specify. This can easily be done by commenting out/removing 3 parts as indicated in the .js file.)
 - I've noticed that it works better pointing the bubble to an input or a button. 
-- Try using element.getBoundingClientRect().top instead of offsetTop, but know that it retrieves coordinates in relation to the viewport window, so make sure you have the viewport scrolled to where you want it first. (And even then I've had issues in other projects.)
 - I've also tried setting a data-adjustment="200" or whatever px value I wanted to add or subtract to get the positioning where I wanted it, but I was not happy with the results.
 - The easiest thing, I believe, is to reduce how deeply nested elements are if possible, and either try pointing the Bubble items to nearby elements, or even create an element with absolute positioning nearby to point the bubble to. (The last suggestion will probably need manual adjustments to it's position to make it responsive to different screen sizes.)
 
 
-In future versions, I will add a feature that can dynamically point an element to one position-getter method or the other to allow an easier way to test and use what works best for each element specifically. I'd like to do the positioning with vanilla JS, but I might also try GSAP plugins at some point as well to see if they perform better.
+IN FUTURE VERSIONS, I will try moving the bubble elements themselves, removing them from one container and adding them to the next container, etc. Also, I'd like to do the positioning with vanilla JS, but in future versions, I might also try GSAP plugins at some point as well to see if they perform better.
 
 ### Credits :
 A thank you to the geniuses at Greensock.

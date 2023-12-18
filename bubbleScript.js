@@ -152,23 +152,44 @@ function bubblePosition(el) {
     const bodyHeight = body.offsetHeight
     const elOffsetTop = el.offsetTop 
     const elOffsetHeight = el.offsetHeight
+    const elOffsetLeft = el.offsetLeft
+    const elBoundingTop = el.getBoundingClientRect.top 
+    const elBoundingLeft = el.getBoundingClientRect.left
     const bubbleOffsetHeight = bubbleContainer.offsetHeight
-    // Y positioning
 
-    let isAtBottom = elOffsetTop + elOffsetHeight >= bodyHeight - elOffsetHeight
-    if (
-        elOffsetTop + elOffsetHeight + bubbleOffsetHeight >= window.innerHeight 
-        ) {
-            bubbleContainer.style.top = (elOffsetTop + (elOffsetHeight * 0.3)) + 'px'
-        } 
-    if ( isAtBottom ) {
-            bubbleContainer.style.top = (elOffsetTop - (bubbleOffsetHeight + 50)) + 'px' 
-        } else {
-            bubbleContainer.style.top = (elOffsetTop + elOffsetHeight + 10) + 'px'
-        }
+    // Y positioning
+    if(el.hasAttribute('data-boundingBubbleY')) {
+        let isAtBottom = elBoundingTop + elOffsetHeight >= bodyHeight - elOffsetHeight
+        if (
+            elBoundingTop + elOffsetHeight + bubbleOffsetHeight >= window.innerHeight 
+            ) {
+                bubbleContainer.style.top = (elBoundingTop + (elOffsetHeight * 0.3)) + 'px'
+            } 
+        if ( isAtBottom ) {
+                bubbleContainer.style.top = (elBoundingTop - (bubbleOffsetHeight + 50)) + 'px' 
+            } else {
+                bubbleContainer.style.top = (elBoundingTop + elOffsetHeight + 10) + 'px'
+            }
+    } else {
+        let isAtBottom = elOffsetTop + elOffsetHeight >= bodyHeight - elOffsetHeight
+        if (
+            elOffsetTop + elOffsetHeight + bubbleOffsetHeight >= window.innerHeight 
+            ) {
+                bubbleContainer.style.top = (elOffsetTop + (elOffsetHeight * 0.3)) + 'px'
+            } 
+        if ( isAtBottom ) {
+                bubbleContainer.style.top = (elOffsetTop - (bubbleOffsetHeight + 50)) + 'px' 
+            } else {
+                bubbleContainer.style.top = (elOffsetTop + elOffsetHeight + 10) + 'px'
+            }
+    }
 
     // X positioning
-    el.offsetLeft <= body.offsetLeft ? bubbleContainer.style.left = '20px' : el.offsetLeft + bubbleContainer.offsetWidth + 20 >= body.offsetWidth ? bubbleContainer.style.left = (body.offsetWidth - (bubbleContainer.offsetWidth + 20)) + 'px' : bubbleContainer.style.left = (el.offsetLeft + 20) + 'px'
+    if(el.hasAttribute('data-boundingBubbleX')) {
+        elBoundingLeft <= body.offsetLeft ? bubbleContainer.style.left = '20px' : elBoundingLeft + bubbleContainer.offsetWidth + 20 >= body.offsetWidth ? bubbleContainer.style.left = (body.offsetWidth - (bubbleContainer.offsetWidth + 20)) + 'px' : bubbleContainer.style.left = (elBoundingLeft + 20) + 'px'
+    } else {
+        elOffsetLeft <= body.offsetLeft ? bubbleContainer.style.left = '20px' : elOffsetLeft + bubbleContainer.offsetWidth + 20 >= body.offsetWidth ? bubbleContainer.style.left = (body.offsetWidth - (bubbleContainer.offsetWidth + 20)) + 'px' : bubbleContainer.style.left = (elOffsetLeft + 20) + 'px'
+    }
 
 }
 
@@ -182,16 +203,27 @@ function bubbleIndicator(el) {
     const body = document.querySelector('body')
     const bodyLeft = body.offsetLeft
     const bodyHeight = body.offsetHeight
+    const elBoundingTop = el.getBoundingClientRect().top
     const elTop = el.offsetTop
+    const elBoundingLeft = el.getBoundingClientRect().left
     const elLeft = el.offsetLeft
     const elHeight = el.offsetHeight
     let isAtBottom = elTop + elHeight >= bodyHeight - elHeight
-    
+
+
     // Y position
-    isAtBottom ? bubbleIndicatorDot.style.top = (elTop - 50) + 'px' : bubbleIndicatorDot.style.top = (elTop + (elHeight * 0.2)) + 'px'   
+    if(el.hasAttribute('data-boundingDotY')) {
+        isAtBottom ? bubbleIndicatorDot.style.top = (elBoundingTop - 50) + 'px' : bubbleIndicatorDot.style.top = (elBoundingTop + (elHeight * 0.2)) + 'px'   
+    } else {
+        isAtBottom ? bubbleIndicatorDot.style.top = (elTop - 50) + 'px' : bubbleIndicatorDot.style.top = (elTop + (elHeight * 0.2)) + 'px'   
+    }
     
     // X position
-    elLeft <= bodyLeft ? bubbleIndicatorDot.style.left = (elLeft + 40) + 'px' : bubbleIndicatorDot.style.left = (elLeft - 60) + 'px'
+    if(el.hasAttribute('data-boundingDotX')) {
+        elLeft <= bodyLeft ? bubbleIndicatorDot.style.left = (elBoundingLeft + 40) + 'px' : bubbleIndicatorDot.style.left = (elBoundingLeft - 60) + 'px'
+    } else {
+        elLeft <= bodyLeft ? bubbleIndicatorDot.style.left = (elLeft + 40) + 'px' : bubbleIndicatorDot.style.left = (elLeft - 60) + 'px'
+    }
     
     // call a small random rotation on the indicator, for fun
     randomRotation(bubbleIndicatorDot) 
